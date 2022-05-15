@@ -4,7 +4,7 @@ const app = express.Router();
 var path = require('path');
 var static = require('serve-static');
 var session = require('express-session');
-var db = require('./db.js');
+var db = require('./model/db.js');
 var MySQLStore = require("express-mysql-session")(session);
 
 
@@ -20,7 +20,7 @@ app.use(
 	})
 );
 app.use('/', router);
-app.use('/web', static(path.join(__dirname, 'web')));
+// app.use('/web', static(path.join(__dirname, 'web')));
 
 
 app.listen(80,()=>{
